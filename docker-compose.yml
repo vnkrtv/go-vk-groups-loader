@@ -12,6 +12,7 @@ services:
       - "0.0.0.0:15432:5432"
   groups-loader:
     build: .
+    image: go-vk-groups-loader
     container_name: vk-groups-loader
     depends_on:
       - db

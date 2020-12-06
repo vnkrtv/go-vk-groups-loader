@@ -44,5 +44,4 @@ cat > config/config.json <<- EOM
 }
 EOM
 
-sudo docker build -t groups-loader-service .
-sudo docker-compose build
+sudo docker-compose build -e PG_NAME="${PG_NAME}" -e PG_USER="${PG_USER}" -e PG_PASS="${PG_PASS}"
