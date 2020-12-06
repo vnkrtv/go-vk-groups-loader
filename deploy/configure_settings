@@ -33,10 +33,10 @@ then
   PG_PORT=5432
 fi
 
-read -r -p "PostgreSQL db name (default: vknews): " PG_NAME
+read -r -p "PostgreSQL db name (default: vkgroups): " PG_NAME
 if [ "${PG_NAME}" == "" ]
 then
-  PG_NAME=vknews
+  PG_NAME=vkgroups
 fi
 
 cat > config/config.json <<- EOM

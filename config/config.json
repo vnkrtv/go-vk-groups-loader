@@ -1,9 +1,0 @@
-{
-  "pguser":   "postgres",
-  "pgpass":   "password",
-  "pgname":   "vknews",
-  "pghost":   "172.17.0.2",
-  "pgport":   "5432",
-  "vktoken":  "",
-  "interval": 600
-}
