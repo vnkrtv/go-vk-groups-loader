@@ -44,4 +44,10 @@ cat > config/config.json <<- EOM
 }
 EOM
 
+cat > config/db.env <<- EOM
+POSTGRES_DB="${PG_NAME}"
+POSTGRES_USER="${PG_USER}"
+POSTGRES_PASSWORD="${PG_PASS}"
+EOM
+
 sudo docker-compose up -d -e PG_NAME="${PG_NAME}" -e PG_USER="${PG_USER}" -e PG_PASS="${PG_PASS}"
