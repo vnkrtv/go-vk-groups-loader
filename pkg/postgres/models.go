@@ -33,9 +33,6 @@ CREATE TABLE IF NOT EXISTS posts (
     date     TIMESTAMP
              NOT NULL,
 
-    title    TEXT
-             NOT NULL,
-
     text     TEXT
 			 NOT NULL,
 
@@ -74,7 +71,6 @@ type Post struct {
 	ID              int            `db:"post_id"`
 	GroupScreenName sql.NullString `db:"group_screen_name"`
 	Date            time.Time      `db:"date"`
-	Title           string         `db:"title"`
 	Text            string         `db:"text"`
 	LikesCount      int            `db:"likes_count"`
 	ViewsCount      int            `db:"views_count"`

@@ -33,14 +33,4 @@ type VKPost struct {
 	Views       struct {
 		Count		int 			 `json:"count"`
 	}                           `json:"views"`
-	Attachments []VKAttachments `json:"attachments"`
-}
-
-type VKAttachments struct {
-	Type  string   `json:"type"`
-	Link  struct {
-		Url          string   `json:"url"`
-		Title        string   `json:"title"`
-		Description  string   `json:"description"`
-	}              `json:"link"`
 }
