@@ -78,12 +78,11 @@ func (s *Storage) GetGroupsScreenNames() ([]string, error) {
 func (s *Storage) InsertPost(post Post) error {
 	sql := `
 		INSERT INTO 
-			posts (post_id, group_screen_name, date, title, text, likes_count, views_count, comments_count, reposts_count) 
+			posts (post_id, group_screen_name, date, text, likes_count, views_count, comments_count, reposts_count) 
 		VALUES 
-			(:post_id, :group_screen_name, :date, :title, :text, :likes_count, :views_count, :comments_count, :reposts_count)
+			(:post_id, :group_screen_name, :date, :text, :likes_count, :views_count, :comments_count, :reposts_count)
 		ON CONFLICT (post_id, date)
 		DO UPDATE SET
-			title = :title,
 			text = :text,
 			likes_count = :likes_count,
 			views_count = :views_count,
@@ -106,7 +105,7 @@ func (s *Storage) InsertPosts(posts []Post) error {
 func (s *Storage) UpdatePost(post Post) error {
 	sql := `
 		UPDATE posts SET 
-			group_screen_name = :group_screen_name, title = :title, 
+			group_screen_name = :group_screen_name,
 			text = :text, likes_count = :likes_count, views_count = :views_count, 
 			comments_count = :comments_count, reposts_count = :reposts_count 
 		WHERE 
