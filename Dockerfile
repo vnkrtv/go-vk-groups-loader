@@ -10,6 +10,6 @@ RUN apk add -U --no-cache ca-certificates
 
 FROM scratch
 COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
-COPY --from=builder /go/src/github.com/vnkrtv/go-vk-news-loader/main /main
+COPY --from=builder /go/src/github.com/vnkrtv/go-vk-groups-loader/main /main
 COPY config /config
 CMD ["/main"]
