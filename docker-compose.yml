@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: vk-groups-postgres
+    environment:
+      - POSTGRES_DB=${PG_NAME}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASS}
+    ports:
+      - "0.0.0.0:15432:5432"
+  groups-loader:
+    build: .
+    container_name: vk-groups-loader
+    depends_on:
+      - db

@@ -20,24 +20,17 @@ then
   exit 1
 fi
 
-read -r -p "PostgreSQL host: " PG_HOST
-if [ "${PG_HOST}" == "" ]
-then
-  echo "Error: PostgreSQL host must be specify"
-  exit 1
-fi
-
-read -r -p "PostgreSQL port (default: 5432): " PG_PORT
-if [ "${PG_PORT}" == "" ]
-then
-  PG_PORT=5432
-fi
-
 read -r -p "PostgreSQL db name (default: vkgroups): " PG_NAME
 if [ "${PG_NAME}" == "" ]
 then
   PG_NAME=vkgroups
 fi
+
+export PG_HOST=db
+export PH_PORT=5432
+export PG_USER="${PG_USER}"
+export PG_PASS="${PG_PASS}"
+export PG_NAME="${PG_NAME}"
 
 cat > config/config.json <<- EOM
 {
@@ -50,3 +43,6 @@ cat > config/config.json <<- EOM
   "interval": 600
 }
 EOM
+
+sudo docker build -t groups-loader-service .
+sudo docker-compose build
