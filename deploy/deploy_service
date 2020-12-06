@@ -44,4 +44,4 @@ cat > config/config.json <<- EOM
 }
 EOM
 
-sudo docker-compose up -d
+sudo docker-compose up -d -e PG_NAME="${PG_NAME}" -e PG_USER="${PG_USER}" -e PG_PASS="${PG_PASS}"
